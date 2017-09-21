@@ -1,33 +1,15 @@
-#Change Log
+# Changelog
+- All notable changes to this project will be documented in this file.
+- This project will be using the K&R notation.
+- Changelog's will be listed newest to oldest from top to bottom:
 
-Team membership:  AB (Captain) & CD (Mate)  
-Team conventions: Allman notation, markdown for changelog  
-Changelog format: [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) 
+Project contributors:
+- Sergey
+- Tim
+- Karl
 
-## *Version x.x*
 
-Release Date: Jul 26, 2027
-
-## New Components
-
--   controllers
-
-    -   serbian (AB)
-    
-## Updated Components
-
--   controllers
-
-    -   german (CD)
-    -   hindi (CD)
-
--   models
-
-    -   italian (AB)
-
--   views
-
-    -   slovenian (AB)
-    -   swedish
-
+## [Unreleased] - Sept 21, 4.34 pm
+### Added
+- Changelog (additions newest first).
 
