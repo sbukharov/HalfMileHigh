@@ -10,6 +10,9 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Oct 5, 8.12 pm
+### Updated
+- Added info/fleet and info/flights controllers that display JSON data returned from models
 
 ## [Unreleased] - Oct 5, 7.56 pm
 ### Updated
