@@ -7,11 +7,10 @@ Project contributors:
 - Sergey
 - Tim
 - Karl
+- Kuanysh
+- Johnathan
 
 
-## [v0.1.0] - Sept 22, 12.03 pm
-### Added
-- Converted Static site to CodeIgniter Site 
 
 ## [Unreleased] - Sept 21, 4.34 pm
 ### Added
