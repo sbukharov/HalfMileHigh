@@ -52,4 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'homepage';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['fleet/(:any)'] = 'fleet/show/$1';
+$route['fleet/(:any)'] = 'info/fleet/show/$1';
+
+$route['fleet'] = 'info/fleet';
+$route['flights'] = 'info/flights';
