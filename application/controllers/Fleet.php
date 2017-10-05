@@ -13,7 +13,7 @@ class Fleet extends Application
         $this->data['fleet'] = $fleet;
 		$this->render();
 	}
-    public function show($planeid) 
+    public function show($planeid)
     {
         $plane = $this->fleetmdl->get($planeid);
         //echo $plane;
@@ -28,6 +28,6 @@ class Fleet extends Application
         $this->data['takeoff'] = $plane['takeoff'];
         $this->data['hourly'] = $plane['hourly'];
         $this->render();
-        
+
     }
 }
