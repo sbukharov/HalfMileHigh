@@ -11,6 +11,11 @@ Project contributors:
 - Johnathan
 
 
+## [Unreleased] - Oct 5, 6.03 pm
+### Added
+- Fleet view
+- Fleetlight integration with model
+
 ## [Unreleased] - Oct 5, 5.38 pm
 ### Added
 - Flight view
