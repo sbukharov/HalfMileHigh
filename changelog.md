@@ -10,6 +10,11 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+
+## [Unreleased] - Oct 5, 7.55 pm
+### Updated
+- Updated fleet and flights models to better comply with Jim's sweet sweet standards
+
 ## [Unreleased] - Oct 5, 7.38 pm
 ### Updated
 - Fixed plane image path in template.php so it renders in /fleet/$id

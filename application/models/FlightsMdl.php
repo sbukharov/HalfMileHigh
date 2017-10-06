@@ -13,13 +13,13 @@ class FlightsMdl extends CI_Model
 	// The data comes from http://www.imdb.com/title/tt0094012/
 	// expressed using long-form array notaiton in case students use PHP 5.x
 	var $data = array(
-		'0'	 => array('from'	 => 'Vancouver', 'to'	 => 'Montreal',
+		'd0'	 => array('from'	 => 'DVR', 'to'	 => 'QQC',
 			'distance'	 => '16700', 'date' => '2017-10-05'),
-		'1'	 => array('from'	 => 'Seattle', 'to'	 => 'Montreal',
+		'd1'	 => array('from'	 => 'Seattle', 'to'	 => 'QQC',
 			'distance'	 => '18400', 'date' => '2017-10-05'),
-		'2'	 => array('from'	 => 'Vancouver', 'to'	 => 'Washington',
+		'd2'	 => array('from'	 => 'DVR', 'to'	 => 'SEC',
 			'distance'	 => '6900', 'date' => '2017-10-01'),
-		'3'	 => array('from'	 => 'Washington', 'to'	 => 'Montreal',
+		'd3'	 => array('from'	 => 'SEC', 'to'	 => 'QQC',
 			'distance'	 => '17800', 'date' => '2017-09-28'));
 
 	// Constructor
