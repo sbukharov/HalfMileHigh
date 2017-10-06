@@ -12,8 +12,12 @@ Project contributors:
 
 ## [Unreleased] - Oct 5, 6.58 pm
 ### Updated
+- Footer style
 - Table view
 
+## [Unreleased] - Oct 5, 6.58 pm
+### Updated
+- Table view
 
 ## [Unreleased] - Oct 5, 6.04 pm
 ### Added

@@ -34,12 +34,10 @@
             <div id="content">
                 {content}
             </div>
-            <div id="footer" class="span12">
-                <div class="row">
-                  <div class="col-sm-3 col-sm-offset-9 footnote">
-                    Copyright &copy; 2017, Half Mile High - Dove.
-                  </div>
-                </div>
+            <div id="footer" class="span12 navbar-fixed-bottom">
+                  <p class="footer-block">
+                    Copyright &copy; 2017, Half Mile High (Dove).
+                  </p>
             </div>
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -2,6 +2,7 @@
 <br /><br />
 
 <table class="table table-hover">
+    <thead>
     <tr>
         <th>
             ID
@@ -12,7 +13,8 @@
         <th>
             Model
         </th>
-    </tr>  
+    </tr> 
+    </thead>
     {fleet}
         <tr>
         <td>
