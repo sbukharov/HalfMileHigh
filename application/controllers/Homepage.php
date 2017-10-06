@@ -9,24 +9,22 @@ class Homepage extends Application
   {
     $countForDate = array();
     foreach ($array as $key=>$value) {
-      // Initialize counts to 0
-      $countForDate[$value['date']] = 0;
+      if (isset($countForDate[$value['date']])) {
+        $countForDate[$value['date']] += 1;
+      } else {
+        $countForDate[$value['date']] = 1;
+      }
     }
 
-    foreach ($array as $key=>$value) {
-      // Increment count for dates
-      $countForDate[$value['date']] += 1;
-    }
-
-    $output = [];
+    $result = [];
     foreach ($countForDate as $key=>$value) {
       // Build date element per codeigniter format.
       $date = array('date'=>$key, 'count'=>$value);
       // Append date.
-      $output[] = $date;
+      $result[] = $date;
     }
 
-    return $output;
+    return $result;
   }
 
 
