@@ -7,7 +7,7 @@
  *
  * @author sergey
  */
-class Fleet extends CI_Model
+class Fleetmdl extends CI_Model
 {
 
 	// The data comes from http://www.imdb.com/title/tt0094012/
