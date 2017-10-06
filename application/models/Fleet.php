@@ -13,13 +13,13 @@ class Fleet extends CI_Model
 	// The data comes from http://www.imdb.com/title/tt0094012/
 	// expressed using long-form array notaiton in case students use PHP 5.x
 	var $data = array(
-		'1'	 => array('make'	 => 'Boeing', 'model'	 => '747',
+		'0'	 => array('make'	 => 'Boeing', 'model'	 => '747',
 			'cost'	 => '1400000'),
 		'1'	 => array('make'	 => 'Loghueed Martin', 'model'	 => 'Arrow',
 			'cost'	 => '600000'),
-		'1'	 => array('make'	 => 'Boeing', 'model'	 => 'Model 4',
+		'2'	 => array('make'	 => 'Boeing', 'model'	 => 'Model 4',
 			'cost'	 => '1100000'),
-		'1'	 => array('make'	 => 'Boeing', 'model'	 => 'T-148',
+		'3'	 => array('make'	 => 'Boeing', 'model'	 => 'T-148',
 			'cost'	 => '400000'));
 
 	// Constructor

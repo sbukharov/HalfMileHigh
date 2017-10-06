@@ -13,13 +13,13 @@ class Flights extends CI_Model
 	// The data comes from http://www.imdb.com/title/tt0094012/
 	// expressed using long-form array notaiton in case students use PHP 5.x
 	var $data = array(
-		'1'	 => array('from'	 => 'Vancouver', 'to'	 => 'Montreal',
+		'0'	 => array('from'	 => 'Vancouver', 'to'	 => 'Montreal',
 			'distance'	 => '16700'),
 		'1'	 => array('from'	 => 'Seattle', 'to'	 => 'Montreal',
 			'distance'	 => '18400'),
-		'1'	 => array('from'	 => 'Vancouver', 'to'	 => 'Washington',
+		'2'	 => array('from'	 => 'Vancouver', 'to'	 => 'Washington',
 			'distance'	 => '6900'),
-		'1'	 => array('from'	 => 'Washington', 'to'	 => 'Montreal',
+		'3'	 => array('from'	 => 'Washington', 'to'	 => 'Montreal',
 			'distance'	 => '17800'));
 
 	// Constructor
