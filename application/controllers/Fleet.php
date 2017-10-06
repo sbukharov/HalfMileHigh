@@ -13,5 +13,16 @@ class Fleet extends Application
         $this->data['fleet'] = $fleet;
 		$this->render();
 	}
-
+    public function show($planeid) 
+    {
+        $plane = $this->fleetmdl->get($planeid);
+        //echo $plane;
+        $this->data['pagebody'] = 'plane';
+        $this->data['id'] = $plane['id'];
+        $this->data['make'] = $plane['make'];
+        $this->data['model'] = $plane['model'];
+        $this->data['cost'] = $plane['cost'];
+        $this->render();
+        
+    }
 }
