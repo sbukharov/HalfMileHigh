@@ -3,12 +3,13 @@
     <head>
         <title>{pagetitle}</title>
         <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
-        <link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
-        <link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
-        <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" media="all" href="css/lightbox.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../../../../css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../../../../css/text.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../../../../css/style.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../../../../css/lightbox.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.css" />
+
     </head>
     <body>
         <div id="wrapper">

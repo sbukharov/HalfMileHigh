@@ -14,13 +14,13 @@ class FlightsMdl extends CI_Model
 	// expressed using long-form array notaiton in case students use PHP 5.x
 	var $data = array(
 		'0'	 => array('from'	 => 'Vancouver', 'to'	 => 'Montreal',
-			'distance'	 => '16700'),
+			'distance'	 => '16700', 'date' => '2017-10-05'),
 		'1'	 => array('from'	 => 'Seattle', 'to'	 => 'Montreal',
-			'distance'	 => '18400'),
+			'distance'	 => '18400', 'date' => '2017-10-05'),
 		'2'	 => array('from'	 => 'Vancouver', 'to'	 => 'Washington',
-			'distance'	 => '6900'),
+			'distance'	 => '6900', 'date' => '2017-10-01'),
 		'3'	 => array('from'	 => 'Washington', 'to'	 => 'Montreal',
-			'distance'	 => '17800'));
+			'distance'	 => '17800', 'date' => '2017-09-28'));
 
 	// Constructor
 	public function __construct()
