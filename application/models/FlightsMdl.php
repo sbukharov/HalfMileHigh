@@ -7,7 +7,7 @@
  *
  * @author sergey
  */
-class Flights extends CI_Model
+class FlightsMdl extends CI_Model
 {
 
 	// The data comes from http://www.imdb.com/title/tt0094012/
