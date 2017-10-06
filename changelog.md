@@ -10,9 +10,13 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
-## [Unreleased] - Oct 5, 7.33 pm
+## [Unreleased] - Oct 5, 7.38 pm
 ### Updated
 - Fixed plane image path in template.php so it renders in /fleet/$id
+
+## [Unreleased] - Oct 5, 7.35 pm
+### Updated
+- Minor table styles, footer
 
 ## [Unreleased] - Oct 5, 7.18 pm
 ### Updated
@@ -28,6 +32,7 @@ Project contributors:
 
 ## [Unreleased] - Oct 5, 6.58 pm
 ### Updated
+- Footer style
 - Table view
 
 ## [Unreleased] - Oct 5, 6.04 pm
