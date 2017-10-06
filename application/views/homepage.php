@@ -1,23 +1,23 @@
 <h1>Homepage</h1>
 <br /><br />
 
-<h2>Flights available</h2>
-<table>
+<h3>Flights available</h3>
+<table class="table">
     <tr>
-        <td>
-            <u>Date</u>
-        </td>
-        <td>
-            <u>Number of flights available</u>
-        </td>
+        <th>
+            Date
+        </th>
+        <th>
+            Number of flights available
+        </th>
     </tr>
     {datearr}
     <tr>
         <td>
-            <b>{date}</b>
+            {date}
         </td>
         <td>
-            <b>{count}</b>
+            {count}
         </td>
     </tr>
     {/datearr}
