@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fleet extends Application
 {
-
+    //default controller that grabs all planes from the fleet and renders the fleet view
 	public function index()
 	{
         //get all planes in our fleet model
@@ -12,7 +12,8 @@ class Fleet extends Application
         $this->data['pagebody'] = 'fleet';
         $this->data['fleet'] = $fleet;
 		$this->render();
-	}
+    }
+    //subcontroller to get a single plane from its id and renders its details in the plane view
     public function show($planeid) 
     {
         $plane = $this->fleetmdl->get($planeid);
