@@ -8,8 +8,11 @@ Project contributors:
 - Tim
 - Karl
 - Kuanysh
-- Johnathan
+- Jonathan
 
+## [Unreleased] - Oct 5, 6.03 pm
+### Updated
+- Table view
 
 ## [Unreleased] - Oct 5, 6.03 pm
 ### Added

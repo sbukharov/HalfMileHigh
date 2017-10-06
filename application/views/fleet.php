@@ -1,25 +1,26 @@
 <h1>Fleet</h1>
 <br /><br />
 
-<table>
+<table class="table table-hover">
     <tr>
-        <td>
-            <u>ID</u>
-        </td>
-        <td>
-            <u>Make</u>
-        </td>
-        <td>
-            <u>Model</u>
-        </td>
+        <th>
+            ID
+        </th>
+        <th>
+            Make
+        </th>
+        <th>
+            Model
+        </th>
     </tr>  
     {fleet}
-    <tr>
+        <tr>
         <td>
             <a href="/fleet/{id}">{id}</a>
         </td>
         <td>{make}</td>
         <td>{model}</td>
+            
     </tr>
     {/fleet}
 </table>
