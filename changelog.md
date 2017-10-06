@@ -10,10 +10,14 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+
+## [Unreleased] - Oct 5, 7.16 pm
+### Updated
+- Updated dashboard to include information on flights leaving on certain days.
+
 ## [Unreleased] - Oct 5, 6.58 pm
 ### Updated
 - Table view
-
 
 ## [Unreleased] - Oct 5, 6.04 pm
 ### Added
