@@ -11,6 +11,10 @@ Project contributors:
 - Jonathan
 
 
+## [Unreleased] - Oct 5, 7.56 pm
+### Updated
+- Minor table styling on main page
+
 ## [Unreleased] - Oct 5, 7.55 pm
 ### Updated
 - Updated fleet and flights models to better comply with Jim's sweet sweet standards
