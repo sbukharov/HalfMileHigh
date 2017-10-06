@@ -7,19 +7,19 @@
  *
  * @author sergey
  */
-class Fleet extends CI_Model
+class Fleetmdl extends CI_Model
 {
 
 	// The data comes from http://www.imdb.com/title/tt0094012/
 	// expressed using long-form array notaiton in case students use PHP 5.x
 	var $data = array(
-		'0'	 => array('make'	 => 'Boeing', 'model'	 => '747',
+		'0'	 => array('id' => '666', 'make'	 => 'Boeing', 'model'	 => '747',
 			'cost'	 => '1400000'),
-		'1'	 => array('make'	 => 'Loghueed Martin', 'model'	 => 'Arrow',
+		'1'	 => array('id' => '667','make'	 => 'Loghueed Martin', 'model'	 => 'Arrow',
 			'cost'	 => '600000'),
-		'2'	 => array('make'	 => 'Boeing', 'model'	 => 'Model 4',
+		'2'	 => array('id' => '668','make'	 => 'Boeing', 'model'	 => 'Model 4',
 			'cost'	 => '1100000'),
-		'3'	 => array('make'	 => 'Boeing', 'model'	 => 'T-148',
+		'3'	 => array('id' => '669','make'	 => 'Boeing', 'model'	 => 'T-148',
 			'cost'	 => '400000'));
 
 	// Constructor
