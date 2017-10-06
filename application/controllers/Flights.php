@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class About extends Application
+class Flights extends Application
 {
 
 	/**
@@ -19,7 +19,13 @@ class About extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagebody'] = 'about';
+		$this->data['pagebody'] = 'flights';
+
+                // build the list of authors, to pass on to our view
+                $source = $this->flightsmdl->all();
+
+                // pass on the data to present, as the "authors" view parameter
+                $this->data['flights'] = $source;
                 
 		$this->render();
 	}

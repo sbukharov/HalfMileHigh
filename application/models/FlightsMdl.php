@@ -7,20 +7,20 @@
  *
  * @author sergey
  */
-class Fleet extends CI_Model
+class FlightsMdl extends CI_Model
 {
 
 	// The data comes from http://www.imdb.com/title/tt0094012/
 	// expressed using long-form array notaiton in case students use PHP 5.x
 	var $data = array(
-		'0'	 => array('make'	 => 'Boeing', 'model'	 => '747',
-			'cost'	 => '1400000'),
-		'1'	 => array('make'	 => 'Loghueed Martin', 'model'	 => 'Arrow',
-			'cost'	 => '600000'),
-		'2'	 => array('make'	 => 'Boeing', 'model'	 => 'Model 4',
-			'cost'	 => '1100000'),
-		'3'	 => array('make'	 => 'Boeing', 'model'	 => 'T-148',
-			'cost'	 => '400000'));
+		'0'	 => array('from'	 => 'Vancouver', 'to'	 => 'Montreal',
+			'distance'	 => '16700'),
+		'1'	 => array('from'	 => 'Seattle', 'to'	 => 'Montreal',
+			'distance'	 => '18400'),
+		'2'	 => array('from'	 => 'Vancouver', 'to'	 => 'Washington',
+			'distance'	 => '6900'),
+		'3'	 => array('from'	 => 'Washington', 'to'	 => 'Montreal',
+			'distance'	 => '17800'));
 
 	// Constructor
 	public function __construct()
