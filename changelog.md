@@ -10,6 +10,11 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+
+## [Unreleased] - Oct 5, 7.18 pm
+### Updated
+- Updated dashboard to include information on flights leaving on certain days.
+
 ## [Unreleased] - Oct 5, 7.16 pm
 ### Updated
 - added more data to fleet model and modified fleet controller and plane view to show that extra data
@@ -21,7 +26,6 @@ Project contributors:
 ## [Unreleased] - Oct 5, 6.58 pm
 ### Updated
 - Table view
-
 
 ## [Unreleased] - Oct 5, 6.04 pm
 ### Added
