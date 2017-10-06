@@ -21,7 +21,12 @@ class Fleet extends Application
         $this->data['id'] = $plane['id'];
         $this->data['make'] = $plane['make'];
         $this->data['model'] = $plane['model'];
-        $this->data['cost'] = $plane['cost'];
+        $this->data['price'] = $plane['price'];
+        $this->data['seats'] = $plane['seats'];
+        $this->data['reach'] = $plane['reach'];
+        $this->data['cruise'] = $plane['cruise'];
+        $this->data['takeoff'] = $plane['takeoff'];
+        $this->data['hourly'] = $plane['hourly'];
         $this->render();
         
     }
