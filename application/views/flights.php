@@ -1,28 +1,28 @@
 <h1>Flights</h1>
 <br /><br />
 
-<table>
+<table class="table">
     <tr>
-        <td>
-            <u>from</u>
-        </td>
-        <td>
-            <u>to</u>
-        </td>
-        <td>
-            <u>distance</u>
-        </td>
+        <th>
+            From
+        </th>
+        <th>
+            To
+        </th>
+        <th>
+            Distance
+        </th>
     </tr>  
     {flights}
     <tr>
         <td>
-            <b>{from}</b>
+            {from}
         </td>
         <td>
-            <b>{to}</b>
+            {to}
         </td>
         <td>
-            <b>{distance}</b>
+            {distance}
         </td>
     </tr>
     {/flights}
