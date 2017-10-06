@@ -8,8 +8,18 @@ Project contributors:
 - Tim
 - Karl
 - Kuanysh
-- Johnathan
+- Jonathan
 
+## [Unreleased] - Oct 5, 6.58 pm
+### Updated
+- Table view
+
+
+## [Unreleased] - Oct 5, 6.04 pm
+### Added
+- Updated site's style.
+- Added bootstrap.
+- Updated nav menu.
 
 ## [Unreleased] - Oct 5, 6.03 pm
 ### Added
@@ -29,4 +39,3 @@ Project contributors:
 ## [Unreleased] - Oct 5, 4.34 pm
 ### Added
 - Changelog (additions newest first).
-
