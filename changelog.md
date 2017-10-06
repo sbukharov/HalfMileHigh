@@ -10,6 +10,14 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Oct 5, 7.16 pm
+### Updated
+- added more data to fleet model and modified fleet controller and plane view to show that extra data
+
+## [Unreleased] - Oct 5, 7.00 pm
+### Updated
+- Added subcontroller to fleet controller that displays info for a single plane when accessing /fleet/$id
+
 ## [Unreleased] - Oct 5, 6.58 pm
 ### Updated
 - Table view
