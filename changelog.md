@@ -10,10 +10,14 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
-## [v0.1.0] - Oct 6, 10.56 pm
+
+## [Unreleased] - Oct 8, 8.12 pm
 ### Updated
-- Fixed date sorting bug.
-- Updated indentation accross application.
+- Improved homepage with information about origin and destination of flights and number of planes.
+
+## [Unreleased] - Oct 5, 8.12 pm
+### Updated
+- Added info/fleet and info/flights controllers that display JSON data returned from models
 
 ## [Unreleased] - Oct 5, 7.56 pm
 ### Updated

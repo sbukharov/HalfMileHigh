@@ -1,26 +1,27 @@
 <?php
 
 /**
- * This is a "CMS" model for quotes, but with bogus hard-coded data,
- * so that we don't have to worry about any database setup.
- * This would be considered a "mock database" model.
+ * This is the Flights model that represents the flights currently available at our 
+ * airport, along with their source and destination, aircraft code, and date of 
+ * departure.
  *
- * @author sergey
+ * @author Sergey
  */
 class FlightsMdl extends CI_Model
 {
+        //Base airport from which all flights begin.
+        var $baseApt = 'VDA (Vancouver Dove Airport)';
 
-	// The data comes from http://www.imdb.com/title/tt0094012/
-	// expressed using long-form array notaiton in case students use PHP 5.x
+	// The data comes represents various flights going from our base airport to other cities
 	var $data = array(
-		'd0'	 => array('from'	 => 'DVR', 'to'	 => 'QQC',
-			'distance'	 => '16700', 'date' => '2017-10-05'),
-		'd1'	 => array('from'	 => 'Seattle', 'to'	 => 'QQC',
-			'distance'	 => '18400', 'date' => '2017-10-05'),
-		'd2'	 => array('from'	 => 'DVR', 'to'	 => 'SEC',
-			'distance'	 => '6900', 'date' => '2017-10-01'),
-		'd3'	 => array('from'	 => 'SEC', 'to'	 => 'QQC',
-			'distance'	 => '17800', 'date' => '2017-09-28'));
+		'0'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'MIX (Montreal Airport)',
+			'distance'	 => '16700', 'date' => '2017-10-05', 'accode' => 'd0'),
+		'1'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'SYC (Seattle International Airport)',
+			'distance'	 => '18400', 'date' => '2017-10-05', 'accode' => 'd1'),
+		'2'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'WVA (Washington International Airport)',
+			'distance'	 => '6900', 'date' => '2017-10-01', 'accode' => 'd2'),
+		'3'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'IIA (Ibiza Airport)',
+			'distance'	 => '17800', 'date' => '2017-09-28', 'accode' => 'd3'));
 
 	// Constructor
 	public function __construct()
@@ -35,16 +36,50 @@ class FlightsMdl extends CI_Model
 		}
 	}
 
-	// retrieve a single quote, null if not found
+	// Retrieve a single flight data point, by index
 	public function get($which)
 	{
 		return !isset($this->data[$which]) ? null : $this->data[$which];
 	}
 
-	// retrieve all of the quotes
+	// Retrieve all of the flight data
 	public function all()
 	{
 		return $this->data;
 	}
+        
+        // Retrieve the base airport
+	public function getBaseApt()
+	{
+		return $this->baseApt;
+	}
 
+        // Retrieve all of the destination airports
+	public function getDestApt()
+	{
+            //count array created
+            $countForDest = array();
+            
+            //iterate through, determining number of occurences of the 'to' field,
+            //and populating count array
+            foreach ($this->data as $key=>$value) {
+              if (isset($countForDest[$value['to']])) {
+                $countForDest[$value['to']] += 1;
+              } else {
+                $countForDest[$value['to']] = 1;
+              }
+            }
+            
+            //output array created
+            $result = [];
+            
+            //using count array, populates output array with values and occurencecs
+            foreach ($countForDest as $key=>$value) {
+              $destcount = array('to'=>$key, 'count'=>$value);
+              // Append destination
+              $result[] = $destcount;
+            }
+            
+            return $result;
+	}
 }
