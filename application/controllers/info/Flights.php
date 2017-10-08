@@ -2,32 +2,27 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Flights extends Application
+class Flights extends CI_Controller
 {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/
-	 * 	- or -
-	 * 		http://example.com/welcome/index
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->data['pagebody'] = 'flights';
+	public function index() {
 
-                // build the list of authors, to pass on to our view
-                $source = $this->flightsmdl->all();
+    //get all flights from flights model
+    $flights = $this->flightsmdl->all();
+    $this->data['pagebody'] = 'info/flights';
+    $this->data['flights'] = json_encode($flights);
+    $this->render();
+  }
 
-                // pass on the data to present, as the "authors" view parameter
-                $this->data['flights'] = $source;
-                
-		$this->render();
-	}
 
+	  /**
+		 * Render this page in JSON format
+		 */
+		function render()
+		{
+			$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+			$this->parser->parse('info/flights', $this->data);
+		}
 }
+
+?>
