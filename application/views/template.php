@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                       <img src="../../../../assets/images/plane.png" alt="Plane" width="100px" height="100px">
-                      <h2 id="title">Half Mile High</h2>
+                      <h2 id="title">Dove Airport & Flights Info Site</h2>
                     </div>
                     <div class="col-sm-2">
                       <button class="bttn-material-flat bttn-sm bttn-success bttn-block"><a href="/">Homepage</a></button>

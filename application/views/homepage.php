@@ -18,3 +18,33 @@
       </tr>
     {/datearr}
 </table>
+
+<br/><br/>
+<h3>Number of planes in the fleet : {sizeFleet}</h3>
+<br/><br/>
+
+<h3>Airports Flights go from/to</h3>
+<br/><br/>
+<table class="table">
+    <thead>
+      <tr>
+          <th>Base Airport</th>
+      </tr>
+    </thead>
+      <tr>
+          <td>{baseAirport}</td>
+      </tr>
+</table>
+
+<table class="table">
+    <thead>
+      <tr>
+          <th>Destination Airports</th>
+      </tr>
+    </thead>
+    {airports}
+      <tr>
+          <td>{to}</td>
+      </tr>
+    {/airports}      
+</table>
