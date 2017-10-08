@@ -5,15 +5,14 @@
  * airport, along with their source and destination, aircraft code, and date of 
  * departure.
  *
- * @author sergey
+ * @author Sergey
  */
 class FlightsMdl extends CI_Model
 {
         //Base airport from which all flights begin.
         var $baseApt = 'VDA (Vancouver Dove Airport)';
 
-	// The data comes represents various flights going from ur base airport to other cities
-	// expressed using long-form array notaiton in case students use PHP 5.x
+	// The data comes represents various flights going from our base airport to other cities
 	var $data = array(
 		'0'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'MIX (Montreal Airport)',
 			'distance'	 => '16700', 'date' => '2017-10-05', 'accode' => 'd0'),
@@ -37,28 +36,32 @@ class FlightsMdl extends CI_Model
 		}
 	}
 
-	// retrieve a single flight data point, by index
+	// Retrieve a single flight data point, by index
 	public function get($which)
 	{
 		return !isset($this->data[$which]) ? null : $this->data[$which];
 	}
 
-	// retrieve all of the flight data
+	// Retrieve all of the flight data
 	public function all()
 	{
 		return $this->data;
 	}
         
-        // retrieve the base airport
+        // Retrieve the base airport
 	public function getBaseApt()
 	{
 		return $this->baseApt;
 	}
 
-        // retrieve all of the destination airports
+        // Retrieve all of the destination airports
 	public function getDestApt()
 	{
+            //count array created
             $countForDest = array();
+            
+            //iterate through, determining number of occurences of the 'to' field,
+            //and populating count array
             foreach ($this->data as $key=>$value) {
               if (isset($countForDest[$value['to']])) {
                 $countForDest[$value['to']] += 1;
@@ -66,14 +69,17 @@ class FlightsMdl extends CI_Model
                 $countForDest[$value['to']] = 1;
               }
             }
-
+            
+            //output array created
             $result = [];
+            
+            //using count array, populates output array with values and occurencecs
             foreach ($countForDest as $key=>$value) {
               $destcount = array('to'=>$key, 'count'=>$value);
               // Append destination
               $result[] = $destcount;
             }
-
+            
             return $result;
 	}
 }
