@@ -10,8 +10,11 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Oct 8, 2.36 pm
+### Updated
+- Renamed flights model to resolve bug.
 
-## [Unreleased] - Oct 8, 8.12 pm
+## [Unreleased] - Oct 8, 1.12 pm
 ### Updated
 - Improved homepage with information about origin and destination of flights and number of planes.
 
