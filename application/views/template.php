@@ -31,14 +31,14 @@
                 </div>
             </div>
 
-            <div class="alone"></div>
             <div id="content">
                 {content}
             </div>
-            <div id="footer" class="span12 navbar-fixed-bottom">
-                  <p class="footer-block">
-                    Copyright &copy; 2017, Half Mile High (Dove).
-                  </p>
+
+            <div id="footer">
+              <p>
+                Copyright &copy; 2017, Half Mile High (Dove).
+              </p>
             </div>
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

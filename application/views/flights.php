@@ -1,5 +1,5 @@
 <h1>Flights</h1>
-<br /><br />
+<br/><br/>
 
 <table class="table">
     <tr>

@@ -20,13 +20,10 @@ class Flights extends Application
 	public function index()
 	{
 		$this->data['pagebody'] = 'flights';
-
-                // build the list of authors, to pass on to our view
-                $source = $this->flightsmdl->all();
-
-                // pass on the data to present, as the "authors" view parameter
-                $this->data['flights'] = $source;
-                
+    // build the list of authors, to pass on to our view
+    $source = $this->flightsmdl->all();
+    // pass on the data to present, as the "authors" view parameter
+    $this->data['flights'] = $source;
 		$this->render();
 	}
 
