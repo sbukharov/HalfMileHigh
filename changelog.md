@@ -10,6 +10,11 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+
+## [Unreleased] - Oct 8, 8.12 pm
+### Updated
+- Improved homepage with information about origin and destination of flights and number of planes.
+
 ## [Unreleased] - Oct 5, 8.12 pm
 ### Updated
 - Added info/fleet and info/flights controllers that display JSON data returned from models

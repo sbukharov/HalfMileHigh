@@ -30,12 +30,21 @@ class Homepage extends Application
 
 	public function index()
 	{
-		$this->data['pagebody'] = 'homepage';
-    // build the list of authors, to pass on to our view
-    $flightsrc = $this->flightsmdl->all();
-    // pass on the data to present, as the "authors" view parameter
-    $this->data['flights'] = $flightsrc;
-    $this->data['datearr'] = $this->countForDates($flightsrc);
-		$this->render();
+            $this->data['pagebody'] = 'homepage';
+            // build the list of authors, to pass on to our view
+            $flightsrc = $this->flightsmdl->all();
+            // pass on the data to present, as the "authors" view parameter
+            $this->data['flights'] = $flightsrc;
+            $this->data['datearr'] = $this->countForDates($flightsrc);
+            
+            $this->data['sizeFleet'] = sizeof($this->fleetmdl->all());
+
+            $this->data['baseAirport'] = $this->flightsmdl->getBaseApt();
+
+            $this->data['airports'] = $this->flightsmdl->getDestApt();
+            
+            $this->render();
+            
+            
 	}
 }
