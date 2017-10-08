@@ -7,7 +7,7 @@
  *
  * @author Sergey
  */
-class FlightsMdl extends CI_Model
+class Flightsmdl extends CI_Model
 {
         //Base airport from which all flights begin.
         var $baseApt = 'VDA (Vancouver Dove Airport)';
