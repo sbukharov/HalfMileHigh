@@ -10,6 +10,10 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Nov 9, 4.23 pm
+### Updated
+- Updated flights data to match business logic.
+
 ## [Unreleased] - Oct 8, 2.36 pm
 ### Updated
 - Renamed flights model to resolve bug.
