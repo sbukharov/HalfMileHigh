@@ -7,10 +7,16 @@
  *
  * @author Sergey
  */
-class Flightsmdl extends CI_Model
+class Flightsmdl extends CSV_Model
 {
+	// Constructor
+	public function __construct()
+	{
+		parent::__construct(APPPATH . '/data/flights.csv', 'id');
+	}
+	/*
         //Base airport from which all flights begin.
-        var $baseApt = 'YYD';
+				var $baseApt = 'YYD';
 
 	// The data comes represents various flights going from our base airport to other cities
 	var $data = array(
@@ -26,14 +32,12 @@ class Flightsmdl extends CI_Model
 			'distance'	 => '12300', 'date' => '2017-10-03', 'departure'=>'1300', 'arrival'=>'1800', 'accode' => 'd4'),
 		'3'	 => array('from'	 => 'ZST', 'to'	 => 'YYD',
 			'distance'	 => '7800', 'date' => '2017-09-27', 'departure'=>'1400', 'arrival'=>'1900', 'accode' => 'd5'));
-
         
         //ZST
 	// Constructor
 	public function __construct()
 	{
 		parent::__construct();
-
 		// inject each "record" key into the record itself, for ease of presentation
 		foreach ($this->data as $key => $record)
 		{
@@ -88,4 +92,6 @@ class Flightsmdl extends CI_Model
             
             return $result;
 	}
+	*/
+
 }
