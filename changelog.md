@@ -10,6 +10,11 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Nov 9, 5.46 pm
+### Updated
+
+- Modified Planesmdl so that is parses from fleet.csv and creates Plane objects. The Planemdl still uses the hardcoded array for now, but it will be simple to switch over
+
 ## [Unreleased] - Nov 9, 4.23 pm
 ### Updated
 - Updated flights data to match business logic.
