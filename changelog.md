@@ -28,6 +28,10 @@ Project contributors:
 - addfleet.php: add to fleet button
 - addflight.php: add flight button
 
+## [Unreleased] - Nov 9, 4.23 pm
+### Updated
+- Updated flights data to match business logic.
+
 ## [Unreleased] - Oct 8, 2.36 pm
 ### Updated
 - Renamed flights model to resolve bug.
