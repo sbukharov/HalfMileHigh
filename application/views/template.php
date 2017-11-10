@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                       <img src="../../../../assets/images/plane.png" alt="Plane" width="100px" height="100px">
-                      <h2 id="title">Half Mile High</h2>
+                      <h2 id="title">Dove Airport & Flights Info Site</h2>
                     </div>
                     <div class="col-sm-2">
                       <button class="bttn-material-flat bttn-sm bttn-success bttn-block"><a href="/">Homepage</a></button>
@@ -31,14 +31,14 @@
                 </div>
             </div>
 
-            <div class="alone"></div>
             <div id="content">
                 {content}
             </div>
-            <div id="footer" class="span12 navbar-fixed-bottom">
-                  <p class="footer-block">
-                    Copyright &copy; 2017, Half Mile High (Dove).
-                  </p>
+
+            <div id="footer">
+              <p>
+                Copyright &copy; 2017, Half Mile High (Dove).
+              </p>
             </div>
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -2,21 +2,34 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+/*
+ * This class represents the fleet page of our airport info site.
+ * @author Tim
+ */
 class Fleet extends Application
 {
-
-	public function index()
-	{
-        //get all planes in our fleet model
+        
+    /**
+     * Index Page for this controller that grabs all planes from the fleet and renders the fleet view
+     *
+     * Maps to the following URL
+     * 		http://comp4711.local/fleet
+     */
+    public function index()
+    {
+        // Get all planes in our fleet model
         $fleet = $this->fleetmdl->all();
         $this->data['pagebody'] = 'fleet';
         $this->data['fleet'] = $fleet;
-		$this->render();
-	}
-    public function show($planeid) 
+        $this->render();
+    }
+
+    // Subcontroller to get a single plane from its id and renders its details in the plane view.
+    public function show($planeid)
     {
+        //All the data points to display
         $plane = $this->fleetmdl->get($planeid);
-        //echo $plane;
         $this->data['pagebody'] = 'plane';
         $this->data['id'] = $plane['id'];
         $this->data['make'] = $plane['make'];
@@ -27,7 +40,8 @@ class Fleet extends Application
         $this->data['cruise'] = $plane['cruise'];
         $this->data['takeoff'] = $plane['takeoff'];
         $this->data['hourly'] = $plane['hourly'];
-        $this->render();
         
+        //Display the data
+        $this->render();
     }
 }

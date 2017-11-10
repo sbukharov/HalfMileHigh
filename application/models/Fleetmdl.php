@@ -1,17 +1,16 @@
 <?php
 
 /**
- * This is a "CMS" model for quotes, but with bogus hard-coded data,
- * so that we don't have to worry about any database setup.
- * This would be considered a "mock database" model.
+ * This is a fleet model that stores information about the airplanes available 
+ * to Dove Airlines, including their id, make, model, price, # seats, reach, 
+ * cruise speed, takeoff speed, and hourly cost to operate.
  *
- * @author sergey
+ * @author Karl
  */
 class Fleetmdl extends CI_Model
 {
 
-	// The data comes from http://www.imdb.com/title/tt0094012/
-	// expressed using long-form array notaiton in case students use PHP 5.x
+	// The data was invented for the purposes of this assignment.
 	var $data = array(
 	'd0'	 => array('id' => 'd0', 'make'	 => 'Boeing', 'model'	 => '747',
 		'price'	 => 1400, 'seats' => 100, 'reach' => 55000, 'cruise' => 750, 
@@ -26,7 +25,7 @@ class Fleetmdl extends CI_Model
 		'price'	 => 4000, 'seats' => 100, 'reach' => 55000, 'cruise' => 750, 
 		'takeoff' => 350, 'hourly' => 2500));
 
-	// Constructor
+	// Constructor for this object.
 	public function __construct()
 	{
 		parent::__construct();
@@ -39,13 +38,13 @@ class Fleetmdl extends CI_Model
 		}
 	}
 
-	// retrieve a single quote, null if not found
+	// Retrieve a single data entry, returns null if not found.
 	public function get($which)
 	{
 		return !isset($this->data[$which]) ? null : $this->data[$which];
 	}
 
-	// retrieve all of the quotes
+	// Retrieve all fleet model data entries. Results in all airplane entries.
 	public function all()
 	{
 		return $this->data;
