@@ -10,6 +10,24 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Nov 9, 7.15 pm
+### Updated
+- .gitignore: /tmp/* for storing session data
+- autoload.php: parsedown library autoload
+- config.php: point to /tmp/ for session data
+- constants.php: defined guest and owner vars
+- Fleet.php: guest/owner button generation
+- Fleet.php: start point for add / edit functions
+- Flights.php: guest/owner button generation
+- Flights.php: start point for add / edit functions
+- Roles.php: role button functionality
+- fleet.php: 'modebutton' call to Fleet.php
+- flights.php: 'modebutton' call to Flights.php
+### Added
+- Parsedown.php: parsedown library for sessions
+- addfleet.php: add to fleet button
+- addflight.php: add flight button
+
 ## [Unreleased] - Oct 8, 2.36 pm
 ### Updated
 - Renamed flights model to resolve bug.
