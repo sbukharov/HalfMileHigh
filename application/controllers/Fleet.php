@@ -18,6 +18,15 @@ class Fleet extends Application
      */
     public function index()
     {
+        //validate current role & generate content accordingly
+        $role = $this->session->userdata('userrole');
+        if ($role == ROLE_OWNER) {
+            $this->data['modebutton'] = '<a href="/roles/actor/Guest" class="btn btn-info" role="button">Mode: Admin</a>';
+            $this->data['modebutton'] .= $this->parser->parse('addfleet',[], true);
+        } else {
+            $this->data['modebutton'] = '<a href="/roles/actor/Owner" class="btn btn-info" role="button">Mode: User</a>';
+        }
+        
         // Get all planes in our fleet model
         $fleet = $this->fleetmdl->all();
         $this->data['pagebody'] = 'fleet';
@@ -44,4 +53,27 @@ class Fleet extends Application
         //Display the data
         $this->render();
     }
+    
+    public function add()
+    {
+        //TODO: Actual database update. Below is from Mtce::add() [Lab 6]
+        
+        /**
+        $task = $this->tasks->create();
+        $this->session->set_userdata('task', $task);
+        $this->showit();
+        **/
+    }
+    
+    public function edit($id = null)
+    {
+        //TODO: Actual database update. Below is from Mtce::edit() [Lab 6]
+        
+        /**if ($id == null)
+            redirect('/mtce');
+        $task = $this->tasks->get($id);
+        $this->session->set_userdata('task', $task);
+        $this->showit();*/
+    }
+    
 }

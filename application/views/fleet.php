@@ -1,4 +1,5 @@
 <h1>Fleet</h1>
+{modebutton}
 <br/><br/>
 
 <table class="table">

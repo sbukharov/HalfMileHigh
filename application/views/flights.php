@@ -1,4 +1,5 @@
 <h1>Flights</h1>
+{modebutton}
 <br/><br/>
 
 <table class="table">
@@ -34,4 +35,5 @@
         </td>
     </tr>
     {/flights}
+    
 </table>
