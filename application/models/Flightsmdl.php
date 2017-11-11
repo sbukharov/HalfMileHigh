@@ -14,13 +14,13 @@ class Flightsmdl extends CI_Model
 
 	// The data comes represents various flights going from our base airport to other cities
 	var $data = array(
-		'0'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'MIX (Montreal Airport)',
+		'd0'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'MIX (Montreal Airport)',
 			'distance'	 => '16700', 'date' => '2017-10-05', 'accode' => 'd0'),
-		'1'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'SYC (Seattle International Airport)',
+		'd1'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'SYC (Seattle International Airport)',
 			'distance'	 => '18400', 'date' => '2017-10-05', 'accode' => 'd1'),
-		'2'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'WVA (Washington International Airport)',
+		'd2'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'WVA (Washington International Airport)',
 			'distance'	 => '6900', 'date' => '2017-10-01', 'accode' => 'd2'),
-		'3'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'IIA (Ibiza Airport)',
+		'd3'	 => array('from'	 => 'VDA (Vancouver Dove Airport)', 'to'	 => 'IIA (Ibiza Airport)',
 			'distance'	 => '17800', 'date' => '2017-09-28', 'accode' => 'd3'));
 
 	// Constructor
@@ -82,4 +82,17 @@ class Flightsmdl extends CI_Model
             
             return $result;
 	}
+    
+    // provide form validation rules
+    public function rules()
+    {
+        $config = array(
+            ['field' => 'from', 'label' => 'id', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
+            ['field' => 'to', 'label' => 'make', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
+            ['field' => 'distance', 'label' => 'model', 'rules' => 'integer|less_than[10]'],
+            ['field' => 'date', 'label' => 'price', 'rules' => 'alpha_numeric_spaces|max_length[10]'],
+            ['field' => 'accode', 'label' => 'seats', 'rules' => 'alpha_numeric_spaces|max_length[4]'],
+        );
+        return $config;
+    }
 }
