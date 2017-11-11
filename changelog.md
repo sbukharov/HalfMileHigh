@@ -10,6 +10,19 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Nov 10, 4.42 pm
+### Updated
+- Fleet.php: now manages add/delete function
+- Flights.php: now manages add/delete function
+- Fleetmdl.php: added validation rules
+- Flightsmdl.php: added validation rules
+
+### Added
+- fleetadmin.php: admin mode for main fleet view
+- flightsadmin.php: admin mode for main flight view
+- planeedit.php: add/edit page for plane
+- flightedit.php: add/edit page for flight
+
 ## [Unreleased] - Nov 9, 7.15 pm
 ### Updated
 - .gitignore: /tmp/* for storing session data
