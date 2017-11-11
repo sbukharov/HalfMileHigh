@@ -68,6 +68,8 @@ class Flights extends Application
             'fto'      => form_label('To') . form_input('flight', $flight['to']),
             'fdistance'      => form_label('Distance') . form_input('flight', $flight['distance']),
             'fdate'      => form_label('Date') . form_input('flight', $flight['date']),
+            'fdeparture'      => form_label('Departure') . form_input('flight', $flight['departure']),
+            'farrival'      => form_label('Arrival') . form_input('flight', $flight['departure']),
             'faccode'      => form_label('Aircraft Code') . form_input('flight', $flight['accode']),
             'zsubmit'    => form_submit('submit', 'Update Flight'),
         );

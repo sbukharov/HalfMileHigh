@@ -4,6 +4,8 @@
     {fto}<br/>
     {fdistance}<br/>
     {fdate}<br/>
+    {fdeparture}<br/>
+    {farrival}<br/>
     {faccode}<br/>
     {zsubmit}    
 </form>
