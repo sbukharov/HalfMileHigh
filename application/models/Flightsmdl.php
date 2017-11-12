@@ -1,16 +1,17 @@
 <?php
-
+define('BASE_APT', 'YYD');
 /**
  * This is the Flights model that represents the flights currently available at our 
  * airport, along with their source and destination, aircraft code, and date of 
  * departure.
  *
- * @author Sergey
+ * @author Sergey Bukharov, Karl Diab, Tim Davis, Jonathan Heggen, Kuanysh Boranbayev
  */
-class Flightsmdl extends CI_Model
+class Flightsmdl extends CSV_Model
 {
-        //Base airport from which all flights begin.
-        var $baseApt = 'YYD';
+
+  //Base airport from which all flights begin.
+  var $baseApt = 'YYD';
 
 	// The data comes represents various flights going from our base airport to other cities
 	var $data = array(
@@ -46,46 +47,42 @@ class Flightsmdl extends CI_Model
 		return !isset($this->data[$which]) ? null : $this->data[$which];
 	}
 
-	// Retrieve all of the flight data
-	public function all()
-	{
-		return $this->data;
-	}
-        
-        // Retrieve the base airport
+	// Retrieve the base airport
 	public function getBaseApt()
 	{
-		return $this->baseApt;
+		$baseApt = BASE_APT;
+		return $baseApt;
 	}
-
-        // Retrieve all of the destination airports
+	
+	// Retrieve all of the destination airports
 	public function getDestApt()
 	{
-            //count array created
-            $countForDest = array();
-            
-            //iterate through, determining number of occurences of the 'to' field,
-            //and populating count array
-            foreach ($this->data as $key=>$value) {
-              if (isset($countForDest[$value['to']])) {
-                $countForDest[$value['to']] += 1;
-              } else {
-                $countForDest[$value['to']] = 1;
-              }
-            }
-            
-            //output array created
-            $result = [];
-            
-            //using count array, populates output array with values and occurencecs
-            foreach ($countForDest as $key=>$value) {
-              $destcount = array('to'=>$key, 'count'=>$value);
-              // Append destination
-              $result[] = $destcount;
-            }
-            
-            return $result;
-	}
+			//count array created
+			$countForDest = array();
+			
+			//iterate through, determining number of occurences of the 'to' field,
+			//and populating count array
+			foreach ($this->all() as $key=>$value) {
+				if (isset($countForDest[$value->to])) {
+					$countForDest[$value->to] += 1;
+				} else {
+					$countForDest[$value->to] = 1;
+				}
+			}
+					
+			//output array created
+			$result = [];
+			
+			//using count array, populates output array with values and occurencecs
+			foreach ($countForDest as $key=>$value) {
+				$destcount = array('to'=>$key, 'count'=>$value);
+				// Append destination
+				$result[] = $destcount;
+			}
+			
+			return $result;
+		}
+
     
     // provide form validation rules
     public function rules()

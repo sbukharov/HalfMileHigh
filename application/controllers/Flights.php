@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
  * This class represents an information flights page on our airport info site.
- * @author Kuanysh
+ * 
+ * @author Sergey Bukharov, Karl Diab, Tim Davis, Jonathan Heggen, Kuanysh Boranbayev
  */
 class Flights extends Application
 {

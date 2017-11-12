@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
  * This class acts as an enpoint returning all flight data in JSON format.
- * @author Kuanysh
+ * 
+ * @author Sergey Bukharov, Karl Diab, Tim Davis, Jonathan Heggen, Kuanysh Boranbayev
  */
 class Flights extends CI_Controller
 {    
