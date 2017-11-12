@@ -32,4 +32,24 @@ class Fleetmdl extends CSV_Model
 		}
 		return $result;
 	}	
+	}
+    
+    
+    // provide form validation rules
+    public function rules()
+    {
+        $config = array(
+            ['field' => 'id', 'label' => 'id', 'rules' => 'alpha_numeric_spaces|max_length[4]'],
+            ['field' => 'make', 'label' => 'make', 'rules' => 'alpha_numeric_spaces|max_length[12]'],
+            ['field' => 'model', 'label' => 'model', 'rules' => 'alpha_numeric_spaces|max_length[12]'],
+            ['field' => 'price', 'label' => 'price', 'rules' => 'integer|less_than[6]'],
+            ['field' => 'seats', 'label' => 'seats', 'rules' => 'integer|less_than[4]'],
+            ['field' => 'reach', 'label' => 'reach', 'rules' => 'integer|less_than[10]'],
+            ['field' => 'cruise', 'label' => 'cruise', 'rules' => 'integer|less_than[10]'],
+            ['field' => 'takeoff', 'label' => 'takeoff', 'rules' => 'integer|less_than[6]'],
+            ['field' => 'hourly', 'label' => 'hourly', 'rules' => 'integer|less_than[6]'],
+        );
+        return $config;
+    }
+    
 }

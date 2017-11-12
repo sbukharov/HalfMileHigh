@@ -47,7 +47,7 @@ class Homepage extends Application
             $this->data['sizeFleet'] = sizeof($this->fleetmdl->all());
             $this->data['baseAirport'] = $this->flightsmdl->getBaseApt();;
             $this->data['airports'] = $this->flightsmdl->getDestApt();
-            
+                    
             //display the page
             $this->render();
 	}
