@@ -2,10 +2,9 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 /*
  * This class represents the fleet page of our airport info site.
- * @author Tim
+ * @author Sergey Bukharov, Karl Diab, Tim Davis, Jonathan Heggen, Kuanysh Boranbayev
  */
 class Fleet extends Application
 {
