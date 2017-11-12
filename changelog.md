@@ -10,6 +10,11 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+
+## [Unreleased] - Nov 12, 2.42 pm
+### Updated
+- Fleetmdl.php - created interface between model and csv file for displaying fleets.
+
 ## [Unreleased] - Nov 10, 4.42 pm
 ### Updated
 - Fleet.php: now manages add/delete function

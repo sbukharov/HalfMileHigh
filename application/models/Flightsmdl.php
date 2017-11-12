@@ -31,20 +31,32 @@ class Flightsmdl extends CSV_Model
 	// Constructor
 	public function __construct()
 	{
-		parent::__construct(APPPATH . '../data/fleet.csv', 'id');
+		parent::__construct(APPPATH . '/data/fleet.csv', 'key');
+                
+                $this->data = $this->all();
 
-		// inject each "record" key into the record itself, for ease of presentation
-		foreach ($this->data as $key => $record)
-		{
-			$record['key'] = $key;
-			$this->data[$key] = $record;
-		}
+
 	}
 
-	// Retrieve a single flight data point, by index
-	public function get($which)
+	// Retrieve a single flight data point, by index, used only with DataMapper
+	public function get($which, $unused)
 	{
 		return !isset($this->data[$which]) ? null : $this->data[$which];
+	}
+        
+        // Retrieve a single data entry, returns null if not found.
+	public function getFlight($id)
+	{
+		$result = array();
+		foreach ($this->all() as $flight) {
+			if (strcasecmp($flight->id, $id) == 0) {
+				$result = (array)$flight;
+				break;
+			} else {
+				$result = null;
+			}
+		}
+		return $result;
 	}
 
 	// Retrieve the base airport

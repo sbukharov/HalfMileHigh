@@ -48,7 +48,7 @@ class Flights extends Application
     {   
         if ($id == null)
             redirect('/fleet');
-        $flight = $this->flightsmdl->get($id);
+        $flight = $this->flightsmdl->getFlight($id);
         $this->session->set_userdata('flight', $flight);
         $this->showit();
     }
