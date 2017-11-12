@@ -30,7 +30,7 @@ class Flightsmdl extends CI_Model
 	// Constructor
 	public function __construct()
 	{
-		parent::__construct();
+		parent::__construct(APPPATH . '../data/fleet.csv', 'id');
 
 		// inject each "record" key into the record itself, for ease of presentation
 		foreach ($this->data as $key => $record)
