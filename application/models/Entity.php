@@ -4,17 +4,11 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * 
+ * @author Sergey Bukharov, Karl Diab, Tim Davis, Jonathan Heggen, Kuanysh Boranbayev
  */
-
-class Entity {
-    
-    // All properties of a task
-    private $id;
-    private $from;
-    private $to;
-    private $status;
-    private $flag;
-
+class Entity 
+{    
     // If this class has a setProp method, use it, else modify the property directly
     // Magic setter
     public function __set($key, $value) {
@@ -33,5 +27,19 @@ class Entity {
         $this->$key = $value;
         return $this;
     }
+
+    // If this class has a getProp method, use it, else modify the property directly
+    // Magic getter
+    public function __get($key) {
+        $method = 'get' . str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $key)));
+        if (method_exists($this, $method))
+        {
+            $this->$method();
+            return $this;
+        }
+
+        return $this->$key;
+    }
 }
 
+?>

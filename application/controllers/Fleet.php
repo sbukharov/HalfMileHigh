@@ -2,10 +2,9 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 /*
  * This class represents the fleet page of our airport info site.
- * @author Tim
+ * @author Sergey Bukharov, Karl Diab, Tim Davis, Jonathan Heggen, Kuanysh Boranbayev
  */
 class Fleet extends Application
 {
@@ -29,7 +28,7 @@ class Fleet extends Application
     public function show($planeid)
     {
         //All the data points to display
-        $plane = $this->fleetmdl->get($planeid);
+        $plane = $this->fleetmdl->getPlane($planeid);
         $this->data['pagebody'] = 'plane';
         $this->data['id'] = $plane['id'];
         $this->data['make'] = $plane['make'];
