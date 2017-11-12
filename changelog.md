@@ -11,6 +11,10 @@ Project contributors:
 - Jonathan
 
 
+## [Unreleased] - Nov 12, 3.32 pm
+### Updated
+- Flightsmdl.php - created interface between model and csv file for displaying fleets.
+
 ## [Unreleased] - Nov 12, 2.42 pm
 ### Updated
 - Fleetmdl.php - created interface between model and csv file for displaying fleets.
