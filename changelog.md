@@ -10,6 +10,10 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Nov 12, 11.11 pm
+### Added
+- Added scheduling ability.
+
 ## [Unreleased] - Nov 12, 8.02 pm
 ### Updated
 - Updated fleet functions.
