@@ -97,8 +97,6 @@ class Flights extends Application
         $this->load->library('form_validation');
         $this->form_validation->set_rules($this->flightsmdl->rules());
         
-        
-        
         // retrieve & update data transfer buffer
         $flight = (array) $this->session->userdata('flight');
         $flight = array_merge($flight, $this->input->post());
@@ -142,5 +140,109 @@ class Flights extends Application
         redirect('/flights');
     }
     
+    
+    public function schedule() {
+        echo "        
+            <link rel='stylesheet' type='text/css' media='all' href='../../../../../css/reset.css' />
+        <link rel='stylesheet' type='text/css' media='all' href='../../../../../css/text.css' />
+        <link rel='stylesheet' type='text/css' media='all' href='../../../../../css/style.css' />
+        <link rel='stylesheet' type='text/css' media='all' href='../../../../../css/lightbox.css' />
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.css' />
+        
+        <div style = 'margin:auto; width:80%;'>
+        ";
+
+        echo "<h3> Travel routes from ". $_POST["fromdrop"]." to ".$_POST["todrop"] . ".</h3>";
+        
+        $this->getFlights($_POST["fromdrop"],$_POST["todrop"]);
+        
+        echo "<br/><br/><a href= '../'><button onclick='goBack()'>Go back</button></a> </div>";
+    }
+    
+    
+    public function getFlights($from, $to) {
+        //array of linked lists/dicts (first/second/third)
+        $result;
+        $midpoints = [];
+        
+        //bools
+        $addtomidpoint = false;
+        $destinationmatch = false;
+        
+        $this->load->helper('form');
+        
+        $flightsarr = (array)$this->flightsmdl->all();
+
+        
+        foreach ($flightsarr as $flight) {
+            //echo "comparing: " . $flight->from . " with " . $from . " and  comparing" . $flight->to . " with ".$to; 
+            if ($flight->from==$from && $flight->to==$to) {
+                //echo "MATCHES  : PUSHING : " . $flight->id;
+                array_push($midpoints, $flight->id);
+            }
+        }
+        
+        if (sizeof($midpoints) == 0) {
+            echo "No matches found for your selection, sorry!";
+            return;
+        }
+        
+        echo "
+            <table class='table'>
+                <tr>
+                    <th>
+                        Aircraft Code
+                    </th>
+                    <th>
+                        From
+                    </th>
+                    <th>
+                        To
+                    </th>
+                    <th>
+                        Departure
+                    </th>
+                    <th>
+                        Arrival
+                    </th>        
+                    <th>
+                        Distance
+                    </th>
+                </tr>";
+        
+        
+        foreach ($midpoints as $key => $value) { 
+            $data = $this->flightsmdl->getFlight($value);
+        
+        echo        "
+                <tr>
+                    <td>
+                        <a style='text-decoration: none; color:black;' ref='#' title='The aircraft code is a unique identifier for the aircraft involved in a flight.'>
+                        " . $data["accode"] . "
+                        </a>
+                    </td>
+                    <td>
+                        " . $data["from"] . "
+                    </td>
+                    <td>
+                        " . $data["to"] . "
+                    </td>
+                    <td>
+                        " . $data["departure"] . "
+                    </td>
+                    <td>
+                        " . $data["arrival"] . "
+                    </td>
+                    <td>
+                        " . $data["distance"] . "
+                    </td>
+                </tr>";
+        }
+
+        echo "</table>";
+        
+        return $result = $midpoints;
+    }
 
 }
