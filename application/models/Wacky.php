@@ -16,7 +16,7 @@ class Wacky extends CI_Model
     */
     public function getAirlines()
     {
-        return json_decode(file_get_contents(WACKY_AIRLINES_URL));
+        return json_decode(curl_get_contents(WACKY_AIRLINES_URL));
     }
 
     /*
@@ -24,7 +24,7 @@ class Wacky extends CI_Model
     */
     public function getAirports()
     {
-        return json_decode(file_get_contents(WACKY_AIRPORTS_URL));
+        return json_decode(curl_get_contents(WACKY_AIRPORTS_URL));
     }
 
     /*
@@ -32,7 +32,7 @@ class Wacky extends CI_Model
     */
     public function getAirplanes()
     {
-        return json_decode(file_get_contents(WACKY_AIRPLANES_URL));
+        return json_decode(curl_get_contents(WACKY_AIRPLANES_URL));
     }
 
     /*
@@ -40,7 +40,7 @@ class Wacky extends CI_Model
     */
     public function getRegions()
     {
-        return json_decode(file_get_contents(WACKY_REGIONS_URL));
+        return json_decode(curl_get_contents(WACKY_REGIONS_URL));
     }
 
     /*
@@ -48,7 +48,7 @@ class Wacky extends CI_Model
     */
     public function getAirline(String $id)
     {
-        return json_decode(file_get_contents(WACKY_AIRLINES_URL . $id));
+        return json_decode(curl_get_contents(WACKY_AIRLINES_URL . $id));
     }
 
     /*
@@ -56,7 +56,7 @@ class Wacky extends CI_Model
     */
     public function getAirport(String $id)
     {
-        return json_decode(file_get_contents(WACKY_AIRPORTS_URL . $id));
+        return json_decode(curl_get_contents(WACKY_AIRPORTS_URL . $id));
     }
 
     /*
@@ -64,7 +64,7 @@ class Wacky extends CI_Model
     */
     public function getAirplane(String $id)
     {
-        return json_decode(file_get_contents(WACKY_AIRPLANES_URL . $id));
+        return json_decode($this->curl_get_contents(WACKY_AIRPLANES_URL . $id));
     }
 
     /*
@@ -72,6 +72,18 @@ class Wacky extends CI_Model
     */
     public function getRegion(String $id)
     {
-        return json_decode(file_get_contents(WACKY_REGIONS_URL . $id));
+        return json_decode(curl_get_contents(WACKY_REGIONS_URL . $id));
+    }
+    
+    function curl_get_contents($url)
+    {
+      $curl = curl_init($url);
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
+      curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+      curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+      $data = curl_exec($curl);
+      curl_close($curl);
+      return $data;
     }
 }

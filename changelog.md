@@ -10,6 +10,9 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Nov 12, 6.02 pm
+### Updated
+- Updated function that pulls data from Wacky server, updated edit pages to display info.
 
 ## [Unreleased] - Nov 12, 3.32 pm
 ### Updated
