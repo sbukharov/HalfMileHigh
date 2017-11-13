@@ -15,7 +15,7 @@ class PlaneTest extends TestCase
     public function testCorrectId() {
         $plane = new Plane();
         $plane->setId("kitten");
-        $this->assertEquals($validId, $plane->getId());
+        $this->assertEquals("kitten", $plane->getId());
     }
 
     public function testEmpty() {

@@ -38,17 +38,19 @@ class Flight extends Entity {
 
     /**
      * Setter for flight departure time
-     * @param string $time
+     * @param integer $time
      */
     public function setDepartureTime($time) {
       if ($time <= 2400 && $time >= 0) {
-        $this->$departureTime = $time;
+        $this->departureTime = $time;
+      } else {
+        throw new Exception("Invalid Time");
       }
     }
 
     /**
      * Getter for flight departure time
-     * @return string $depart_from
+     * @return integer time
      */
     public function getDepartureTime() {
       return $this->$departureTime;
@@ -56,17 +58,19 @@ class Flight extends Entity {
 
     /**
      * Setter for flight arrival time
-     * @param string $time
+     * @param integer $time
      */
     public function setArrivalTime($time) {
       if ($time <= 2400 && $time >= 0) {
-          $this->$arrivalTime = $time;
+          $this->arrivalTime = $time;
+      } else {
+        throw new Exception("Invalid Time");
       }
     }
 
     /**
      * Getter for flight arrival time
-     * @return string $arrivalTime
+     * @return integer $arrivalTime
      */
     public function getArrivalTime() {
       return $this->$arrivalTime;
@@ -81,6 +85,8 @@ class Flight extends Entity {
       $airport = $wackyModel->getAirport($from);
       if ($airport && $airport !== 'null') {
          $this->depart_from = $from;
+      } else {
+        throw new Exception("Invalid port");
       }
     }
 
