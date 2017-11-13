@@ -61,6 +61,10 @@ class Fleet extends Application
         $this->data['hourly'] = $plane->hourly;
 
 
+        echo $role;
+        echo "<br/> ID " . $planeid;
+        echo "<br/> ID " . $plane->id;
+
         // Display the data
         $this->render();
     }

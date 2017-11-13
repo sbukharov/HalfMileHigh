@@ -1,5 +1,6 @@
 <h1>Flight {id}</h1>
 <form role="form" action="/flights/submit" method="post">
+    <span style="display:none">{fid}<br /></span>
     {ffrom}<br/>
     {fto}<br/>
     {fdistance}<br/>
