@@ -35,8 +35,6 @@ class Flightsmdl extends CSV_Model
     // Retrieve a single flight data point, by index, used only with DataMapper
     public function get($which, $unused = 0)
     {
-      echo $which;
-
         return !isset($this->data[$which]) ? null : $this->data[$which];
     }
 
@@ -71,32 +69,6 @@ class Flightsmdl extends CSV_Model
 
         return $result;
     }
-    
-    // Retrieve all of the destination airports
-    public function getFromApt()
-    {
-        // count array created
-        $countForDest = array();
-
-        // iterate through, determining number of occurences of the 'to' field, and populating count array
-        foreach ($this->all() as $key=>$value) {
-            if (isset($countForDest[$value->to])) {
-                $countForDest[$value->to] += 1;
-            } else {
-                $countForDest[$value->to] = 1;
-            }
-        }
-
-        $result = [];
-        // using count array, populates output array with values and occurencecs
-        foreach ($countForDest as $key=>$value) {
-            $destcount = array('from'=>$key, 'count'=>$value);
-            // Append destination
-            $result[] = $destcount;
-        }
-
-        return $result;
-    }
 
     // Form validation rules
     public function rules()
@@ -110,5 +82,4 @@ class Flightsmdl extends CSV_Model
         );
         return $config;
     }
-    
 }
