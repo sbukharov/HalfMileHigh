@@ -21,16 +21,19 @@ class Fleetmdl extends CSV_Model
 	// Retrieve a single data entry, returns null if not found.
 	public function getPlane($id)
 	{
-		$result = array();
-		foreach ($this->all() as $plane) {
-			if (strcasecmp($plane->id, $id) == 0) {
-				$result = (array)$plane;
-				break;
-			} else {
-				$result = null;
-			}
-		}
-		return $result;
+            $result;
+
+            foreach ($this->all() as $key=>$value) {
+                $value->id;
+
+                if (strcasecmp($value->id, $id) == 0) {
+                    $result = $value;
+                    return $result;
+                } else {
+                    $result = "OOPS ";
+                }
+            }
+            return $result;
 	}	
 	
     

@@ -76,32 +76,34 @@ class Fleet extends Application
     {   
         if ($id == null)
             redirect('/fleet');
-        $plane = $this->fleetmdl->get($id);
+        
+        $plane = $this->fleetmdl->getPlane($id);
         $this->session->set_userdata('plane', $plane);
+        
         $this->showit();
     }
     
     // Render the current DTO
     private function showit()
-    {
+    {        
         $this->load->helper('form');
         $plane = $this->session->userdata('plane');
-        $this->data['id'] = $plane['id'];
+        $this->data['id'] = $plane->id;
 
         // if no errors, pass an empty message
         if ( ! isset($this->data['error']))
             $this->data['error'] = '';
 
         $fields = array(
-            'fid'      => form_label('ID') . form_input('plane', $plane['id']),
-            'fmake'      => form_label('Make') . form_input('plane', $plane['make']),
-            'fmodel'      => form_label('Model') . form_input('plane', $plane['model']),
-            'fprice'      => form_label('Price') . form_input('plane', $plane['price']),
-            'fseats'      => form_label('Seats') . form_input('plane', $plane['seats']),
-            'freach'      => form_label('Reach') . form_input('plane', $plane['reach']),
-            'fcruise'      => form_label('Cruise') . form_input('plane', $plane['cruise']),
-            'ftakeoff'      => form_label('Takeoff') . form_input('plane', $plane['takeoff']),
-            'fhourly'      => form_label('Hourly') . form_input('plane', $plane['hourly']),
+            'fid'      => form_label('ID') . form_input('plane', $plane->id),
+            'fmake'      => form_label('Make') . form_input('plane', $plane->make),
+            'fmodel'      => form_label('Model') . form_input('plane', $plane->model),
+            'fprice'      => form_label('Price') . form_input('plane', $plane->price),
+            'fseats'      => form_label('Seats') . form_input('plane', $plane->seats),
+            'freach'      => form_label('Reach') . form_input('plane', $plane->reach),
+            'fcruise'      => form_label('Cruise') . form_input('plane', $plane->cruise),
+            'ftakeoff'      => form_label('Takeoff') . form_input('plane', $plane->takeoff),
+            'fhourly'      => form_label('Hourly') . form_input('plane', $plane->hourly),
             'zsubmit'    => form_submit('submit', 'Update Fleet'),
         );
         $this->data = array_merge($this->data, $fields);

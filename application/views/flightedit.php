@@ -1,4 +1,4 @@
-<h1>Flight {accode}</h1>
+<h1>Flight {id}</h1>
 <form role="form" action="/flights/submit" method="post">
     {ffrom}<br/>
     {fto}<br/>

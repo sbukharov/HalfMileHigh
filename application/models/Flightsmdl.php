@@ -12,6 +12,7 @@ class Flightsmdl extends CSV_Model
         //Base airport from which all flights begin.
         var $baseApt = 'YYD';
 	// The data comes represents various flights going from our base airport to other cities
+        //Note - doesn't seem to hold anything, use $this->all() instead
 	var $data = array();
         
 	// Constructor
@@ -25,23 +26,21 @@ class Flightsmdl extends CSV_Model
         // Retrieve a single data entry, returns null if not found.
 	public function getFlight($id)
 	{
-		$result = array();
-		foreach ($this->all() as $flight) {
-			if (strcasecmp($flight->id, $id) == 0) {
-				$result = (array)$flight;
-				break;
-			} else {
-				$result = null;
-			}
-		}
-		return $result;
+            $result;
+
+            foreach ($this->all() as $key=>$value) {
+                $value->id;
+
+                if (strcasecmp($value->id, $id) == 0) {
+                    $result = $value;
+                    return $result;
+                } else {
+                    $result = null;
+                }
+            }
+            return $result;
 	}
 
-	// Retrieve a single flight data point, by index, used only with DataMapper
-	public function get($which, $unused)
-	{
-		return !isset($this->data[$which]) ? null : $this->data[$which];
-	}
         
 	// Retrieve the base airport
 	public function getBaseApt()

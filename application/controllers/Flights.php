@@ -48,8 +48,10 @@ class Flights extends Application
     {   
         if ($id == null)
             redirect('/fleet');
+        
         $flight = $this->flightsmdl->getFlight($id);
         $this->session->set_userdata('flight', $flight);
+        
         $this->showit();
     }
     
@@ -58,20 +60,21 @@ class Flights extends Application
     {
         $this->load->helper('form');
         $flight = $this->session->userdata('flight');
-        $this->data['accode'] = $flight['accode'];
+        $this->data['id'] = $flight->id;
 
         // if no errors, pass an empty message
-        if ( ! isset($this->data['error']))
+        if ( ! isset($this->data['error'])){
             $this->data['error'] = '';
+        }
         
         $fields = array(
-            'ffrom'      => form_label('From') . form_input('flight', $flight['from']),
-            'fto'      => form_label('To') . form_input('flight', $flight['to']),
-            'fdistance'      => form_label('Distance') . form_input('flight', $flight['distance']),
-            'fdate'      => form_label('Date') . form_input('flight', $flight['date']),
-            'fdeparture'      => form_label('Departure') . form_input('flight', $flight['departure']),
-            'farrival'      => form_label('Arrival') . form_input('flight', $flight['departure']),
-            'faccode'      => form_label('Aircraft Code') . form_input('flight', $flight['accode']),
+            'ffrom'      => form_label('From') . form_input('flight', $flight->from),
+            'fto'      => form_label('To') . form_input('flight', $flight->to),
+            'fdistance'      => form_label('Distance') . form_input('flight', $flight->distance),
+            'fdate'      => form_label('Date') . form_input('flight', $flight->date),
+            'fdeparture'      => form_label('Departure') . form_input('flight', $flight->departure),
+            'farrival'      => form_label('Arrival') . form_input('flight', $flight->departure),
+            'faccode'      => form_label('Aircraft Code') . form_input('flight', $flight->accode),
             'zsubmit'    => form_submit('submit', 'Update Flight'),
         );
         $this->data = array_merge($this->data, $fields);
