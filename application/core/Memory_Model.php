@@ -157,7 +157,8 @@ class Memory_Model extends CI_Model implements DataMapper
 	{
 		// convert object from associative array, if needed
 		$record = (is_array($record)) ? (object) $record : $record;
-                
+                unset($record->{"submit"});
+
                 echo " IN MEMORY <br/> <table>";
                 foreach ($record as $key => $value) {
                     echo "<tr>";
@@ -175,6 +176,8 @@ class Memory_Model extends CI_Model implements DataMapper
                 
 		// update the collection appropriately
 		$key = $record->{$this->_keyfield};
+                
+                echo "KEY IS + " . $key;
 		if (isset($this->_data[$key]))
 		{
 			$this->_data[$key] = $record;

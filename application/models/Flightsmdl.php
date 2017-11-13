@@ -17,7 +17,7 @@ class Flightsmdl extends CSV_Model
     // Constructor
     public function __construct()
     {
-        parent::__construct(APPPATH . '/data/flights.csv', 'key');
+        parent::__construct(APPPATH . '/data/flights.csv', 'id');
         $this->data = $this->all();
     }
 
