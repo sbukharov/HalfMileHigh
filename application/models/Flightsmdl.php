@@ -17,7 +17,7 @@ class Flightsmdl extends CSV_Model
     // Constructor
     public function __construct()
     {
-        parent::__construct(APPPATH . '/data/flights.csv', 'key');
+        parent::__construct(APPPATH . '/data/flights.csv', 'id');
         $this->data = $this->all();
     }
 
@@ -33,7 +33,7 @@ class Flightsmdl extends CSV_Model
     }
 
     // Retrieve a single flight data point, by index, used only with DataMapper
-    public function get($which, $unused)
+    public function get($which, $unused = 0)
     {
         return !isset($this->data[$which]) ? null : $this->data[$which];
     }
@@ -74,13 +74,11 @@ class Flightsmdl extends CSV_Model
     public function rules()
     {
         $config = array(
-            ['field' => 'from', 'label' => 'id', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
-            ['field' => 'to', 'label' => 'make', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
-            ['field' => 'distance', 'label' => 'model', 'rules' => 'integer|less_than[10]'],
-            ['field' => 'date', 'label' => 'price', 'rules' => 'alpha_numeric_spaces|max_length[10]'],
-            ['field' => 'departure', 'label' => 'departure', 'rules' => 'integer|less_than[6]'],
-            ['field' => 'arrival', 'label' => 'arrival', 'rules' => 'integer|less_than[6]'],
-            ['field' => 'accode', 'label' => 'seats', 'rules' => 'alpha_numeric_spaces|max_length[4]'],
+            ['field' => 'from', 'label' => 'from', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
+            ['field' => 'to', 'label' => 'to', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
+            ['field' => 'departure', 'label' => 'departure', 'rules' => 'integer|greater_than[800]'],
+            ['field' => 'arrival', 'label' => 'arrival', 'rules' => 'integer|less_than[2200]'],
+            ['field' => 'accode', 'label' => 'aircraft code', 'rules' => 'alpha_numeric_spaces|max_length[4]'],
         );
         return $config;
     }

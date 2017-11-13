@@ -157,8 +157,11 @@ class Memory_Model extends CI_Model implements DataMapper
 	{
 		// convert object from associative array, if needed
 		$record = (is_array($record)) ? (object) $record : $record;
+                unset($record->{"submit"});
+                
 		// update the collection appropriately
 		$key = $record->{$this->_keyfield};
+                
 		if (isset($this->_data[$key]))
 		{
 			$this->_data[$key] = $record;

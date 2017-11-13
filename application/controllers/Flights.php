@@ -48,7 +48,9 @@ class Flights extends Application
     {   
         if ($id == null)
             redirect('/fleet');
-        $flight = $this->flightsmdl->getFlight($id);
+        $flight = $this->flightsmdl->get($id);
+        
+        
         $this->session->set_userdata('flight', $flight);
         $this->showit();
     }
@@ -57,7 +59,9 @@ class Flights extends Application
     private function showit()
     {
         $this->load->helper('form');
-        $flight = $this->session->userdata('flight');
+        $flight = (array)$this->session->userdata('flight');
+        $this->session->set_userdata('flight', $flight);
+
         $this->data['id'] = $flight['id'];
 
         // if no errors, pass an empty message
@@ -65,13 +69,15 @@ class Flights extends Application
             $this->data['error'] = '';
         
         $fields = array(
-            'ffrom'      => form_label('From') . form_input('flight', $flight['from']),
-            'fto'      => form_label('To') . form_input('flight', $flight['to']),
-            'fdistance'      => form_label('Distance') . form_input('flight', $flight['distance']),
-            'fdate'      => form_label('Date') . form_input('flight', $flight['date']),
-            'fdeparture'      => form_label('Departure') . form_input('flight', $flight['departure']),
-            'farrival'      => form_label('Arrival') . form_input('flight', $flight['departure']),
-            'faccode'      => form_label('Aircraft Code') . form_input('flight', $flight['accode']),
+            'fid'      => form_label('Id') . form_input('id', $flight['id']),
+            'ffrom'      => form_label('From') . form_input('from', $flight['from']),
+            'fto'      => form_label('To') . form_input('to', $flight['to']),
+            'fdistance'      => form_label('Distance') . form_input('distance', $flight['distance']),
+            'fdate'      => form_label('Date') . form_input('date', $flight['date']),
+            'fdeparture'      => form_label('Departure') . form_input('departure', $flight['departure']),
+            'farrival'      => form_label('Arrival') . form_input('arrival', $flight['arrival']),
+            'faccode'      => form_label('Aircraft Code') . form_input('accode', $flight['accode']),
+            'faccode'      => form_label('Aircraft Code') . form_input('accode', $flight['accode']),
             'zsubmit'    => form_submit('submit', 'Update Flight'),
         );
         $this->data = array_merge($this->data, $fields);
@@ -83,10 +89,16 @@ class Flights extends Application
     // handle form submission
     public function submit()
     {
+        
+
         // setup for validation
+        
+        $this->load->helper('form');
         $this->load->library('form_validation');
         $this->form_validation->set_rules($this->flightsmdl->rules());
-
+        
+        
+        
         // retrieve & update data transfer buffer
         $flight = (array) $this->session->userdata('flight');
         $flight = array_merge($flight, $this->input->post());
@@ -96,14 +108,16 @@ class Flights extends Application
         // validate away
         if ($this->form_validation->run())
         {
-            if ($this->flightsmdl->update($flight)) {
-            $this->alert('Flight ' . $plane['id'] . ' updated', 'success');
-        } else
-        {
-            $this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
+            $this->alert('Flight ' . $flight->id . ' updated successfully.', 'success');
+            $this->flightsmdl->update($flight);
+        } else {
+            $this->alert('<strong>Validation errors, see below: <strong><br>' . validation_errors(), 'danger');
         }
-        $this->showit();
-        }
+        //$flight["id"] = $plane['id'];
+        $this->session->set_userdata('flight', $flight);
+
+        
+        $this->showit();         
     }
     
     // build a suitable error mesage
