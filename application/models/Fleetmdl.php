@@ -1,5 +1,6 @@
 <?php
 
+require_once(APPPATH . 'models/Plane.php');
 require_once(APPPATH . 'models/Wacky.php');
 
 /**
@@ -15,7 +16,7 @@ class Fleetmdl extends CSV_Model
 
     public function __construct()
     {
-        parent::__construct(APPPATH . '/data/fleet.csv', 'key');
+        parent::__construct(APPPATH . '/data/fleet.csv', 'id');
 
         $this->data = $this->all();
     }
@@ -26,8 +27,17 @@ class Fleetmdl extends CSV_Model
     public function get($id, $key2 = null)
     {
         $wackyServer = new Wacky();
-				$fullPlane = $wackyServer->getAirplane($id);
-				return $fullPlane;
+
+        $localPlane = parent::get($id, $key2);
+        $remotePlane = $wackyServer->getAirplane($id);
+
+        foreach (get_object_vars($remotePlane) as $prop => $val) {
+          if (!property_exists($localPlane, $prop)) {
+              $localPlane->$prop = $val;
+          }
+        }
+
+				return $remotePlane;
     }
 
     // provide form validation rules
