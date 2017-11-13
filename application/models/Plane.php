@@ -1,4 +1,7 @@
 <?php
+
+require_once(APPPATH . 'models/Wacky.php');
+
 class Plane extends CI_Model
 {
     /* Data members representing all aspects of a task */
@@ -37,12 +40,12 @@ class Plane extends CI_Model
     {
         // Use Wacky server
         $wackyserver = new Wacky();
-        $airplane = $wackyModel.getAirplane($identifier);
+        $airplane = $wackyserver->getAirplane($identifier);
         if (!$airplane || $airplane === 'null') {
             throw new Exception("Airplane Not Found");
         }
 
-        parse($airplane);
+        $this->parse($airplane);
     }
 
     /*
