@@ -9,7 +9,7 @@
     {fcruise}<br/>
     {ftakeoff}<br/>
     {fhourly}<br/>
-    {zsubmit}    
+    {zsubmit}
 </form>
     {error}
 <a href="/fleet/cancel"><input type="button" value="Cancel the current edit"/></a>
