@@ -20,7 +20,7 @@
     <tr>
         <td>
             <a style="text-decoration: none; color:black;" ref="#" title="The aircraft code is a unique identifier for the aircraft involved in a flight.">
-            <a href="/flights/edit/{accode}"><input type="button" value="{accode}"/></a>
+            <a href="/flights/edit/{id}"><input type="button" value="{id}"/></a>
             </a>
         </td>
         <td>

@@ -58,7 +58,7 @@ class Flights extends Application
     {
         $this->load->helper('form');
         $flight = $this->session->userdata('flight');
-        $this->data['accode'] = $flight['accode'];
+        $this->data['id'] = $flight['id'];
 
         // if no errors, pass an empty message
         if ( ! isset($this->data['error']))
