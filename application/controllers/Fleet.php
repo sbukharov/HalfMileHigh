@@ -61,10 +61,6 @@ class Fleet extends Application
         $this->data['hourly'] = $plane->hourly;
 
 
-        echo $role;
-        echo "<br/> ID " . $planeid;
-        echo "<br/> ID " . $plane->id;
-
         // Display the data
         $this->render();
     }
@@ -131,13 +127,16 @@ class Fleet extends Application
         if ($this->form_validation->run())
         {
             if ($this->fleetmdl->update($plane)) {
-            $this->alert('Plane ' . $plane['id'] . ' updated', 'success');
-        } else
-        {
-            $this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
+                $this->alert('Plane ' . $plane['id'] . ' updated', 'success');
+            } else {
+                $this->alert('<strong>Validation errors!<strong><br/ >' . validation_errors(), 'danger');
+            }
         }
+        
+        $this->alert('<strong>Validation woo!<strong><br/ >', 'success');
+
         $this->showit();
-        }
+
     }
 
     // build a suitable error mesage

@@ -74,12 +74,11 @@ class Flightsmdl extends CSV_Model
     public function rules()
     {
         $config = array(
-            ['field' => 'from', 'label' => 'id', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
-            ['field' => 'to', 'label' => 'make', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
-            ['field' => 'date', 'label' => 'price', 'rules' => 'alpha_numeric_spaces|max_length[10]'],
+            ['field' => 'from', 'label' => 'from', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
+            ['field' => 'to', 'label' => 'to', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
             ['field' => 'departure', 'label' => 'departure', 'rules' => 'integer|greater_than[800]'],
             ['field' => 'arrival', 'label' => 'arrival', 'rules' => 'integer|less_than[2200]'],
-            ['field' => 'accode', 'label' => 'seats', 'rules' => 'alpha_numeric_spaces|max_length[4]'],
+            ['field' => 'accode', 'label' => 'aircraft code', 'rules' => 'alpha_numeric_spaces|max_length[4]'],
         );
         return $config;
     }

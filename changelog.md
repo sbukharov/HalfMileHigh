@@ -10,6 +10,10 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Nov 12, 8.22 pm
+### Added
+- Added ability to edit data in database file from console.
+
 ## [Unreleased] - Nov 12, 6.02 pm
 ### Updated
 - Updated function that pulls data from Wacky server, updated edit pages to display info.

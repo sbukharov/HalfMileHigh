@@ -50,18 +50,6 @@ class Flights extends Application
             redirect('/fleet');
         $flight = $this->flightsmdl->get($id);
         
-        echo " IN EDIT <br/> <table>";
-        foreach ($flight as $key => $value) {
-            echo "<tr>";
-            echo "<td>";
-            echo $key;
-            echo "</td>";
-            echo "<td>";
-            echo $value;
-            echo "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
         
         $this->session->set_userdata('flight', $flight);
         $this->showit();
@@ -74,19 +62,6 @@ class Flights extends Application
         $flight = (array)$this->session->userdata('flight');
         $this->session->set_userdata('flight', $flight);
 
-        echo " IN SHOWIT <br/> <table>";
-        foreach ($flight as $key => $value) {
-            echo "<tr>";
-            echo "<td>";
-            echo $key;
-            echo "</td>";
-            echo "<td>";
-            echo $value;
-            echo "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        
         $this->data['id'] = $flight['id'];
 
         // if no errors, pass an empty message
@@ -102,6 +77,7 @@ class Flights extends Application
             'fdeparture'      => form_label('Departure') . form_input('departure', $flight['departure']),
             'farrival'      => form_label('Arrival') . form_input('arrival', $flight['arrival']),
             'faccode'      => form_label('Aircraft Code') . form_input('accode', $flight['accode']),
+            'faccode'      => form_label('Aircraft Code') . form_input('accode', $flight['accode']),
             'zsubmit'    => form_submit('submit', 'Update Flight'),
         );
         $this->data = array_merge($this->data, $fields);
@@ -114,19 +90,6 @@ class Flights extends Application
     public function submit()
     {
         
-        /*
-        echo "<table>";
-        foreach ($_POST as $key => $value) {
-            echo "<tr>";
-            echo "<td>";
-            echo $key;
-            echo "</td>";
-            echo "<td>";
-            echo $value;
-            echo "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";*/
 
         // setup for validation
         
@@ -142,29 +105,13 @@ class Flights extends Application
         $flight = (object) $flight;  // convert back to object
         $this->session->set_userdata('flight', (object) $flight);
 
-       
-        echo " IN SUBMIT <br/> <table>";
-        foreach ($this->session->userdata('flight') as $key => $value) {
-            echo "<tr>";
-            echo "<td>";
-            echo $key;
-            echo "</td>";
-            echo "<td>";
-            echo $value;
-            echo "</td>";
-            echo "</tr>";
-        }
-        echo "</table>"; 
-        
         // validate away
         if ($this->form_validation->run())
         {
-            if ($this->flightsmdl->update($flight)) {
-                $this->alert('Flight ' . $flight['id'] . ' updated', 'success');
-            }
-        } else
-        {
-            $this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
+            $this->alert('Flight ' . $flight->id . ' updated successfully.', 'success');
+            $this->flightsmdl->update($flight);
+        } else {
+            $this->alert('<strong>Validation errors, see below: <strong><br>' . validation_errors(), 'danger');
         }
         //$flight["id"] = $plane['id'];
         $this->session->set_userdata('flight', $flight);
