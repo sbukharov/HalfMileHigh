@@ -10,6 +10,34 @@ Project contributors:
 - Kuanysh
 - Jonathan
 
+## [Unreleased] - Nov 12, 11.21 pm
+### Updated
+- Minor bugfixes.
+
+## [Unreleased] - Nov 12, 11.11 pm
+### Added
+- Added scheduling ability.
+
+## [Unreleased] - Nov 12, 8.02 pm
+### Updated
+- Updated fleet functions.
+
+## [Unreleased] - Nov 12, 8.22 pm
+### Added
+- Added ability to edit data in database file from console.
+
+## [Unreleased] - Nov 12, 6.02 pm
+### Updated
+- Updated function that pulls data from Wacky server, updated edit pages to display info.
+
+## [Unreleased] - Nov 12, 3.32 pm
+### Updated
+- Flightsmdl.php - created interface between model and csv file for displaying fleets.
+
+## [Unreleased] - Nov 12, 2.42 pm
+### Updated
+- Fleetmdl.php - created interface between model and csv file for displaying fleets.
+
 ## [Unreleased] - Nov 10, 4.42 pm
 ### Updated
 - Fleet.php: now manages add/delete function

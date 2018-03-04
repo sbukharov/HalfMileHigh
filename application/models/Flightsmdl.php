@@ -1,112 +1,110 @@
 <?php
-define('BASE_APT', 'YYD');
+
+require_once(APPPATH . 'models/Wacky.php');
+
 /**
- * This is the Flights model that represents the flights currently available at our 
- * airport, along with their source and destination, aircraft code, and date of 
+ * This is the Flights model that represents the flights currently available at our
+ * airport, along with their source and destination, aircraft code, and date of
  * departure.
  *
  * @author Sergey Bukharov, Karl Diab, Tim Davis, Jonathan Heggen, Kuanysh Boranbayev
  */
 class Flightsmdl extends CSV_Model
 {
+    // The data comes represents various flights going from our base airport to other cities
+    public $data = array();
 
-  //Base airport from which all flights begin.
-  var $baseApt = 'YYD';
+    // Constructor
+    public function __construct()
+    {
+        parent::__construct(APPPATH . '/data/flights.csv', 'id');
+        $this->data = $this->all();
+    }
 
-	// The data comes represents various flights going from our base airport to other cities
-	var $data = array(
-		'd0'	 => array('from'	 => 'YYD', 'to'	 => 'YPZ',
-			'distance'	 => '16700', 'date' => '2017-10-05', 'departure'=>'900', 'arrival'=>'1100', 'accode' => 'd0'),
-		'd1'	 => array('from'	 => 'YYD', 'to'	 => 'YDL',
-			'distance'	 => '18400', 'date' => '2017-10-05', 'departure'=>'1000', 'arrival'=>'1500', 'accode' => 'd1'),
-		'd2'	 => array('from'	 => 'YDL', 'to'	 => 'YYD',
-			'distance'	 => '6900', 'date' => '2017-10-01', 'departure'=>'1100', 'arrival'=>'1400', 'accode' => 'd2'),
-		'd3'	 => array('from'	 => 'YPZ', 'to'	 => 'YYD',
-			'distance'	 => '17800', 'date' => '2017-09-28', 'departure'=>'1200', 'arrival'=>'1600', 'accode' => 'd3'),
-		'd4'	 => array('from'	 => 'YYD', 'to'	 => 'ZST',
-			'distance'	 => '12300', 'date' => '2017-10-03', 'departure'=>'1300', 'arrival'=>'1800', 'accode' => 'd4'),
-		'd5'	 => array('from'	 => 'ZST', 'to'	 => 'YYD',
-			'distance'	 => '7800', 'date' => '2017-09-27', 'departure'=>'1400', 'arrival'=>'1900', 'accode' => 'd5'));
+    // Retrieve a single data entry, returns null if not found.
+    public function getFlight($id)
+    {
+        foreach ($this->all() as $flight) {
+            if (strcasecmp($flight->id, $id) == 0) {
+                return (array)$flight;
+            }
+        }
+        return null;
+    }
 
-	// Constructor
-	public function __construct()
-	{
-		parent::__construct(APPPATH . '/data/fleet.csv', 'key');
-                
-                $this->data = $this->all();
+    // Retrieve a single flight data point, by index, used only with DataMapper
+    public function get($which, $unused = 0)
+    {
+        return !isset($this->data[$which]) ? null : $this->data[$which];
+    }
 
+    // Retrieve the base airport
+    public function getBaseApt()
+    {
+        return BASE_APT;
+    }
 
-	}
+    // Retrieve all of the destination airports
+    public function getDestApt()
+    {
+        // count array created
+        $countForDest = array();
 
-	// Retrieve a single flight data point, by index, used only with DataMapper
-	public function get($which, $unused)
-	{
-		return !isset($this->data[$which]) ? null : $this->data[$which];
-	}
-        
-        // Retrieve a single data entry, returns null if not found.
-	public function getFlight($id)
-	{
-		$result = array();
-		foreach ($this->all() as $flight) {
-			if (strcasecmp($flight->id, $id) == 0) {
-				$result = (array)$flight;
-				break;
-			} else {
-				$result = null;
-			}
-		}
-		return $result;
-	}
+        // iterate through, determining number of occurences of the 'to' field, and populating count array
+        foreach ($this->all() as $key=>$value) {
+            if (isset($countForDest[$value->to])) {
+                $countForDest[$value->to] += 1;
+            } else {
+                $countForDest[$value->to] = 1;
+            }
+        }
 
-	// Retrieve the base airport
-	public function getBaseApt()
-	{
-		$baseApt = BASE_APT;
-		return $baseApt;
-	}
-	
-	// Retrieve all of the destination airports
-	public function getDestApt()
-	{
-			//count array created
-			$countForDest = array();
-			
-			//iterate through, determining number of occurences of the 'to' field,
-			//and populating count array
-			foreach ($this->all() as $key=>$value) {
-				if (isset($countForDest[$value->to])) {
-					$countForDest[$value->to] += 1;
-				} else {
-					$countForDest[$value->to] = 1;
-				}
-			}
-					
-			//output array created
-			$result = [];
-			
-			//using count array, populates output array with values and occurencecs
-			foreach ($countForDest as $key=>$value) {
-				$destcount = array('to'=>$key, 'count'=>$value);
-				// Append destination
-				$result[] = $destcount;
-			}
-			
-			return $result;
-		}
+        $result = [];
+        // using count array, populates output array with values and occurencecs
+        foreach ($countForDest as $key=>$value) {
+            $destcount = array('to'=>$key, 'count'=>$value);
+            // Append destination
+            $result[] = $destcount;
+        }
 
+        return $result;
+    }
     
-    // provide form validation rules
+    // Retrieve all of the destination airports
+    public function getFromApt()
+    {
+        // count array created
+        $countForDest = array();
+
+        // iterate through, determining number of occurences of the 'to' field, and populating count array
+        foreach ($this->all() as $key=>$value) {
+            if (isset($countForDest[$value->to])) {
+                $countForDest[$value->to] += 1;
+            } else {
+                $countForDest[$value->to] = 1;
+            }
+        }
+
+        $result = [];
+        // using count array, populates output array with values and occurencecs
+        foreach ($countForDest as $key=>$value) {
+            $destcount = array('from'=>$key, 'count'=>$value);
+            // Append destination
+            $result[] = $destcount;
+        }
+
+        return $result;
+    }
+
+    // Form validation rules
     public function rules()
     {
         $config = array(
-            ['field' => 'from', 'label' => 'id', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
-            ['field' => 'to', 'label' => 'make', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
-            ['field' => 'distance', 'label' => 'model', 'rules' => 'integer|less_than[10]'],
-            ['field' => 'date', 'label' => 'price', 'rules' => 'alpha_numeric_spaces|max_length[10]'],
-            ['field' => 'departure', 'label' => 'departure', 'rules' => 'integer|less_than[6]'],
-            ['field' => 'arrival', 'label' => 'arrival', 'rules' => 'integer|less_than[6]'],
-            ['field' => 'accode', 'label' => 'seats', 'rules' => 'alpha_numeric_spaces|max_length[4]'],
+            ['field' => 'from', 'label' => 'from', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
+            ['field' => 'to', 'label' => 'to', 'rules' => 'alpha_numeric_spaces|max_length[25]'],
+            ['field' => 'departure', 'label' => 'departure', 'rules' => 'integer|greater_than[800]'],
+            ['field' => 'arrival', 'label' => 'arrival', 'rules' => 'integer|less_than[2200]'],
+            ['field' => 'accode', 'label' => 'aircraft code', 'rules' => 'alpha_numeric_spaces|max_length[4]'],
         );
         return $config;
     }

@@ -13,6 +13,15 @@
             To
         </th>
         <th>
+            Date
+        </th>
+        <th>
+            Departure
+        </th>
+        <th>
+            Arrival
+        </th>
+        <th>
             Distance
         </th>
     </tr>  
@@ -20,7 +29,7 @@
     <tr>
         <td>
             <a style="text-decoration: none; color:black;" ref="#" title="The aircraft code is a unique identifier for the aircraft involved in a flight.">
-            <a href="/flights/edit/{accode}"><input type="button" value="{accode}"/></a>
+            <a href="/flights/edit/{id}"><input type="button" value="{id}"/></a>
             </a>
         </td>
         <td>
@@ -28,6 +37,15 @@
         </td>
         <td>
             {to}
+        </td>
+        <td>
+            {date}
+        </td>
+        <td>
+            {departure}
+        </td>
+        <td>
+            {arrival}
         </td>
         <td>
             {distance}
